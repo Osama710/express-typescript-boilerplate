@@ -1,45 +1,64 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Express Typescript Boilerplate with Authentication and CRUD Operations
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+Welcome to the Express Typescript Boilerplate project! This boilerplate provides a solid foundation for building web applications using Express ts, with built-in authentication, schema validation middlewares, and CRUD operations for managing users.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Features
 
----
+- **Authentication**: User authentication using JSON Web Tokens (JWT) for secure access to protected routes.
+- **Schema Validation**: Middleware for validating request payloads against predefined schemas using Yup.
+- **User CRUD Operations**: Complete CRUD operations for managing users, including creation, retrieval, updating, and deletion.
+- **Login Endpoint**: Secure login endpoint for authenticating users and generating JWT tokens for subsequent requests.
+- **Database Migration**: Utilize the `/migrate` API endpoint to automatically create SQL tables. Ensure you manually create a database with the name `express_boilerplate` before running the migration.
 
-## Edit a file
+## Prerequisites
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+Before getting started, make sure you have the following prerequisites installed:
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+- Node.js and npm
+- MySQL (with a database named `typescript_express`)
+- Git (optional)
 
----
+## Getting Started
 
-## Create a file
+Follow these steps to set up and run the project locally:
 
-Next, you’ll add a new file to this repository.
+1. Clone the repository:
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+   ```bash
+   git clone https://github.com/yourusername/express-typescript-boilerplate.git
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+2. Navigate to the project directory:
 
----
+   ```bash
+   cd express-typescript-boilerplate
 
-## Clone a repository
+3. Install dependencies:
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+   ```bash
+   npm install
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+4. Create a .env file based on the provided .env.example and configure your environment variables, including database credentials and JWT secret key.
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+5. create a database typescript_express and then run api /migrate to create tables.
+
+6. Start the server:
+   ```bash
+   nodemon
+
+## API Documentation
+
+Explore the API endpoints and their functionalities:
+
+- **POST /user**: Register a new user.
+- **POST /login**: Authenticate user and generate JWT token.
+- **GET /users**: Get all users.
+- **GET /user/:id**: Get user by ID.
+- **PUT /user/:id**: Update user by ID.
+- **DELETE /user/:id**: Delete user by ID.
+- **POST /migrate**: Run database migration to create tables.
+
+For detailed information on each endpoint, refer to the API documentation or inspect the codebase.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvement, feel free to open an issue or submit a pull request.
