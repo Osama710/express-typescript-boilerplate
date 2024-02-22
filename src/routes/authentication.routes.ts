@@ -7,9 +7,9 @@ import { loginSchema } from '../schemas/authentication.schema';
 class AuthenticationRoutes {
   register(app: Application): void {
     const controller = new AuthenticationController();
-    app.post("/login", ValidationMiddleware.createHandler(loginSchema), (req, res) => controller.login(req, res));
-    app.get("/protected", authenticationMiddleware, (req, res) => controller.protectedFunction(req, res));
-    app.post("/migrate", (req, res) => controller.migrate(req, res));
+    app.post("/login", ValidationMiddleware.createHandler(loginSchema), controller.login);
+    app.get("/protected", authenticationMiddleware, controller.protectedFunction);
+    app.post("/migrate", controller.migrate);
   }
 }
 

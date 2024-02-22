@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import HelperFunctions from "../helper";
 
 class UsersController extends BaseController {
-  async usersListing(req: Request, res: Response): Promise<void> {
+  usersListing = async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await models.Users.findAll({
         attributes: { exclude: ["password"] },
@@ -15,8 +15,8 @@ class UsersController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
-  async userByID(req: Request, res: Response): Promise<void> {
+  };
+  userByID = async (req: Request, res: Response): Promise<void> => {
     try {
       const { id } = req.params;
       const user = await models.Users.findByPk(id, {
@@ -30,9 +30,9 @@ class UsersController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 
-  async createUser(req: Request, res: Response): Promise<void> {
+  createUser = async (req: Request, res: Response): Promise<void> => {
     try {
       const { email } = req.body;
       const user = await models.Users.findOne({ where: { email } });
@@ -47,9 +47,9 @@ class UsersController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 
-  async updateUser(req: Request, res: Response): Promise<void> {
+  updateUser = async (req: Request, res: Response): Promise<void> => {
     try {
       const { id } = req.params;
       const { email } = req.body;
@@ -71,9 +71,9 @@ class UsersController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 
-  async deleteUser(req: Request, res: Response): Promise<void> {
+  deleteUser = async (req: Request, res: Response): Promise<void> => {
     try {
       const { id } = req.params;
       const user = await models.Users.findByPk(id);
@@ -86,7 +86,7 @@ class UsersController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 }
 
 export default UsersController;

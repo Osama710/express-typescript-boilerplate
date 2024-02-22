@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 class AuthenticationController extends BaseController {
-  async login(req: Request, res: Response): Promise<void> {
+  login = async (req: Request, res: Response) : Promise<void> => {
     try {
       const { email, password } = req.body;
       const user = await models.Users.findOne({
@@ -76,18 +76,18 @@ class AuthenticationController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 
-  async protectedFunction(req: Request, res: Response): Promise<void> {
+  protectedFunction = async (req: Request, res: Response) : Promise<void> => {
     try {
       return this.response(res, 200, "Hello World!!!!");
     } catch (error: any) {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 
-  async migrate(req: Request, res: Response): Promise<void> {
+  migrate = async (req: Request, res: Response) : Promise<void> => {
     try {
       await models.Users.sync();
       await models.FailedLoginAttempt.sync();
@@ -114,7 +114,7 @@ class AuthenticationController extends BaseController {
       console.log("error", error);
       return this.response(res, 500, error.message);
     }
-  }
+  };
 }
 
 export default AuthenticationController;

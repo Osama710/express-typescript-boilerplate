@@ -8,11 +8,11 @@ import { createUserSchema, updateUserSchema } from '../schemas/users.schema';
 class UsersRoutes {
   register(app: Application): void {
     const controller = new UsersController();
-    app.get("/users", authenticationMiddleware, (req, res) => controller.usersListing(req, res));
-    app.get("/user/:id", authenticationMiddleware, pathVariableMiddleware, (req, res) => controller.userByID(req, res));
-    app.post("/user", authenticationMiddleware, ValidationMiddleware.createHandler(createUserSchema), (req, res) => controller.createUser(req, res));
-    app.put("/user/:id", authenticationMiddleware, pathVariableMiddleware, ValidationMiddleware.createHandler(updateUserSchema), (req, res) => controller.updateUser(req, res));
-    app.delete("/user/:id", authenticationMiddleware, pathVariableMiddleware, (req, res) => controller.deleteUser(req, res));
+    app.get("/users", authenticationMiddleware, controller.usersListing);
+    app.get("/user/:id", authenticationMiddleware, pathVariableMiddleware, controller.userByID);
+    app.post("/user", authenticationMiddleware, ValidationMiddleware.createHandler(createUserSchema), controller.createUser);
+    app.put("/user/:id", authenticationMiddleware, pathVariableMiddleware, ValidationMiddleware.createHandler(updateUserSchema), controller.updateUser);
+    app.delete("/user/:id", authenticationMiddleware, pathVariableMiddleware, controller.deleteUser);
   }
 }
 
