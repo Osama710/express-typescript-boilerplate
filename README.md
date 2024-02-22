@@ -8,7 +8,7 @@ Welcome to the Express Typescript Boilerplate project! This boilerplate provides
 - **Schema Validation**: Middleware for validating request payloads against predefined schemas using Yup.
 - **User CRUD Operations**: Complete CRUD operations for managing users, including creation, retrieval, updating, and deletion.
 - **Login Endpoint**: Secure login endpoint for authenticating users and generating JWT tokens for subsequent requests.
-- **Database Migration**: Utilize the `/migrate` API endpoint to automatically create SQL tables. Ensure you manually create a database with the name `express_boilerplate` before running the migration.
+- **Database Migration**: Utilize the `/migrate` API endpoint to automatically create SQL tables. Ensure you manually create a database with the name `typescript_express` before running the migration.
 
 ## Prerequisites
 
